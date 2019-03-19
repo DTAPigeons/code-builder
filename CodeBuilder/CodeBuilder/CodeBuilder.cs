@@ -19,10 +19,13 @@ namespace CodeBuilder
         }
 
         public ClassBuilder AddClass(string className) {
-            ClassBuilder classBuilder = new ClassBuilder(code, className);
+            StringBuilder currentCode = new StringBuilder(ToString());
+            ClassBuilder classBuilder = new ClassBuilder(currentCode, className);
             return classBuilder;
         }
 
-
+        public override string ToString() {
+            return "";
+        }
     }
 }
