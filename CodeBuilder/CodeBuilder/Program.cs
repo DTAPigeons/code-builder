@@ -6,7 +6,9 @@ namespace CodeBuilder
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var classBuilder = new ClassBuilder("Person").AddField("Name", "string").AddField("Age", "int");
+            Console.WriteLine(classBuilder);
+            Console.ReadLine();
         }
     }
 }
