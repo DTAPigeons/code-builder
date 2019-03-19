@@ -18,9 +18,9 @@ namespace CodeBuilder
             this.code = code;
         }
 
-        public CodeBuilder AddClass(string className) {
-            code.AppendLine("public class " + className);
-            return this;
+        public ClassBuilder AddClass(string className) {
+            ClassBuilder classBuilder = new ClassBuilder(code, className);
+            return classBuilder;
         }
 
 

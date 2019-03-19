@@ -4,12 +4,8 @@ using System.Text;
 
 namespace CodeBuilder
 {
-    class ClassBuilder
+    class ClassBuilder: CodeBuilder
     {
-
-        protected const int INDENT_SIZE = 2;
-
-        protected StringBuilder code = null;
 
         public ClassBuilder() {
 
@@ -21,9 +17,14 @@ namespace CodeBuilder
             code.AppendLine(indent+"public class " + className+" {");
         }
 
+        public ClassBuilder(StringBuilder code, string className) : base(code) {
+            string indent = new string(' ', INDENT_SIZE);
+            code.AppendLine(indent + "public class " + className + " {");
+        }
+
         public ClassBuilder AddField(string fieldName,string fieldType,string privasy = "private") {
             string indent = new string(' ', INDENT_SIZE * 2);
-            code.AppendLine(indent+" "+privasy+" "+fieldType+" "+fieldName);
+            code.AppendLine(indent+" "+privasy+" "+fieldType+" "+fieldName+";");
             return this;
         }
 
